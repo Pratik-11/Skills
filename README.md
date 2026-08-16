@@ -21,6 +21,17 @@ failures; rewrites; then proves the new version is better with a before/after di
 
 Includes `scripts/lint.py` and `scripts/check.py`, run via `python3`.
 
+## model-orchestrator
+
+Assesses a task, decides which model tier each piece of work should run on, spawns
+capped subagents accordingly, verifies the results, and synthesizes — instead of
+running everything on one model.
+
+Built in two layers: a harness-agnostic policy in abstract tiers (`frontier` /
+`deep` / `standard` / `cheap`), and a bindings block mapping those tiers to real
+models and spawn mechanics. Claude Code is filled in; Gemini CLI and Codex/GPT are
+stubs with a completion checklist. See its [README](model-orchestrator/README.md).
+
 ## License
 
 MIT — see [LICENSE](LICENSE).
