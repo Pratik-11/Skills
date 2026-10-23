@@ -84,8 +84,9 @@ Watch for the yellow `⚠` block:
   column. Report it separately, from `costs --by region`, never as "unknown".
 - **N inference profile(s) unresolved (…)** — an application inference profile's
   id could not be mapped to its model (the `ListInferenceProfiles` call failed or
-  was denied). Its tokens are unpriced and the spend headline excludes them.
-  aingel retries on the next run; if it persists, check the role's
+  was denied). Its tokens are unpriced and left out, and the **rate is
+  suppressed** — every cost on that screen is list price, and the headline says
+  so. aingel retries on the next run; if it persists, check the role's
   `bedrock:ListInferenceProfiles` permission. Never report that spend as zero.
 
 **Many regions "not probed" while `costs --by region` shows spend there** almost
@@ -374,7 +375,7 @@ purges it.
 - **Quoting `+$X unmatched` as a saving or an error.** It is billed spend with no
   catalog price; report it and fix the catalog.
 - **Treating an unresolved inference profile as zero spend.** The headline
-  excludes it and says so; the tokens are real.
+  says it is left out and that costs are list price; the tokens are real.
 - **Pinning `--region` out of habit.** It hides every other region; let
   discovery run unless you mean to narrow.
 - **Recommending prompt caching without checking REUSE/NET** — or using the
